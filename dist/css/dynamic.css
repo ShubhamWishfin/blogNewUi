@@ -1,0 +1,25 @@
+.offerCard .flex-col {
+    flex-direction: column;
+}
+
+.offerCard .w-\[31px\] {
+    width: 31px;
+}
+
+.offerCard .text-\[\#FF5733\] {
+    --tw-text-opacity: 1;
+    color: rgb(255 87 51 / var(--tw-text-opacity));
+}
+
+.offerCard .p-5 {
+    padding: 1.25rem;
+}
+
+.offerCard .border-dotted {
+    border-style: dotted;
+}
+
+.offerCard .bg-\[\#f6f8fc\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(246 248 252 / var(--tw-bg-opacity));
+}
