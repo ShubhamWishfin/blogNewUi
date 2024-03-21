@@ -24,13 +24,13 @@ $(document).ready(function () {
     $(window).resize(function () {
         if ($(window).width() >= 1024) {
             calculateHeight();
-        }else{
+        } else {
             $('.feartureCardWrapper ').css('max-height', '100%').removeClass('overflow-y-scroll');
         }
     })
     if ($(window).width() >= 1024) {
         calculateHeight();
-    }else{
+    } else {
         $('.feartureCardWrapper ').css('max-height', '100%').removeClass('overflow-y-scroll');
     }
 
@@ -78,6 +78,8 @@ $(document).ready(function () {
         var progress = (tempSliderValue / $(this).attr("max")) * 100;
         $(this).css("background", "linear-gradient(to right, #FF5733 " + progress + "%, #ccc " + progress + "%)");
 
+        calculateData();
+
     });
 
     $(document).on('click', '.card, .featureCard, .postCard', function (e) {
@@ -86,14 +88,54 @@ $(document).ready(function () {
             let url = $(this).attr("data-target");
             window.open(
                 url,
-                '_blank' 
+                '_blank'
             );
         }
     });
-    
+
+    $('input[type="search"]').focus(function () {
+        $(this).closest('div').find('input[type="search"]').css('border-color', '#96a3b5')
+    })
+
+    $(document).on('click', '.headerSearchBtn, .mobileHeaderSearchBtn', function () {
+        let val = $(this).closest('div').find('.searchBoxInput').val()
+        console.log('val = ', val);
+        if (val.trim() != '' && val.trim().length > 3) {
+            // $.ajax({
+            // your ajax call
+            // })
+        } else {
+            $(this).closest('div').find('input[type="search"]').css('border-color', 'red')
+        }
+    })
+
+    $('#LoanAmount').on('input', function () {
+        var loanAmount = $(this).val();
+
+    });
+
 
 });  // jquery function end
 
+function calculateData() {
+    let LoanAmount = $('#LoanAmount').val();
+    let InterestRate = $('#InterestRate').val();
+    let Tenure = $('#Tenure').val();
+
+    //  monthlyInstallment,InterestAmount,PrincipalAmount calculation here
+    // then assign value to givin variables it will reflect on page
+
+    // dummy data
+    // convert actual data into  indianFormatNumber
+    let monthlyInstallment = indianFormatNumber(44424);
+    let InterestAmount = indianFormatNumber(33093);
+    let PrincipalAmount = indianFormatNumber(533093);
+
+    $('.monthlyInstallment').val(monthlyInstallment)
+    $('.InterestAmount').val(InterestAmount)
+    $('.PrincipalAmount').val(PrincipalAmount)
+
+}
 function calculateHeight() {
     let firstCardHeight = $('.featureCard').eq(0).outerHeight();
     let secondCardHeight = $('.featureCard').eq(1).outerHeight();
