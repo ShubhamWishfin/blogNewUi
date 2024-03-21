@@ -32,7 +32,7 @@ $(document).ready(function () {
         $(".topFooterLinks li").removeClass("bg-[#192a43]");
         $(this).addClass("bg-[#192a43]");
         $(".middleFooterLinks ul").addClass("hidden");
-        $(".middleFooterLinks ul[data-key='" + dataKey + "']").removeClass("hidden").addClass('flex'); // Corrected selector
+        $(".middleFooterLinks ul[data-key='" + dataKey + "']").removeClass("hidden").addClass('flex'); 
     });
     
     
