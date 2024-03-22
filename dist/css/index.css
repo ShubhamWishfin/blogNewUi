@@ -104,6 +104,18 @@ body {
 }
 /* range slider common css end */
 
+.offerCard  {
+    display: flex;
+    flex-direction: column;
+    background-color: #f6f8fc;
+}
+.offerCard  ul{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
 @media screen and (max-width:640px){
     .featureCard:first-child{
         margin-top: 0;
